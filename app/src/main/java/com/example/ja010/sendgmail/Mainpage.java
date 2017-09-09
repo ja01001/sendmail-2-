@@ -50,7 +50,7 @@ public class Mainpage extends AppCompatActivity {
                             "teamhanmail@gmail.com", // from.getText().toString(),
                             "teamhanmail@gmail.com" // to.getText().toString()
                     );
-
+                    toast();
                     toast();
                 } catch (Exception e)
                 {
