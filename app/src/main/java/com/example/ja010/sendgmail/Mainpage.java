@@ -30,7 +30,7 @@ public class Mainpage extends AppCompatActivity {
         {
             public void onClick(View view)
             {
-                GMailSender sender = new GMailSender("teamhanmail@gmail.com", "hanyang123"); // SUBSTITUTE
+                GMailSender sender = new GMailSender("user_id@gmail.com", "password"); // SUBSTITUTE
 
                 if (android.os.Build.VERSION.SDK_INT > 9)
                 {
@@ -46,8 +46,8 @@ public class Mainpage extends AppCompatActivity {
                 {
                     sender.sendMail("컨설팅 참가 확인 메일", // subject.getText().toString(),
                             "컨설팅 참석에 감사드립니다. ", // body.getText().toString(),
-                            "teamhanmail@gmail.com", // from.getText().toString(),
-                            "teamhanmail@gmail.com" // to.getText().toString()
+                            "user_email@gmail.com", // from.getText().toString(),
+                            "user_email@gmail.com" // to.getText().toString()
                     );
 
                     toast();
