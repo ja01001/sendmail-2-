@@ -75,7 +75,7 @@ public class Mainpage extends AppCompatActivity {
             public void run() {
                 textmain3.setText("이어야 합니다. ");
             }
-        },3000);
+        },2000);
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
