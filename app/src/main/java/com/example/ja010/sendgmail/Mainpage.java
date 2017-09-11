@@ -9,23 +9,22 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Mainpage extends AppCompatActivity {
     private GMailSender m;
-
-    EditText et_content;
-    EditText et_title;
-
+    TextView textmain1,textmain2,textmain3,textmain4;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainpage);
-
+        textmain1 = (TextView)findViewById(R.id.text1);
+        textmain2 = (TextView)findViewById(R.id.text2);
+        textmain3 = (TextView)findViewById(R.id.text3);
+        textmain4 = (TextView)findViewById(R.id.text4);
         Button btn_send = (Button) this.findViewById(R.id.btn_send);
-        et_content = (EditText) findViewById(R.id.et_content);
-        et_title = (EditText) findViewById(R.id.et_title);
 
         btn_send.setOnClickListener(new View.OnClickListener()
         {
@@ -45,12 +44,12 @@ public class Mainpage extends AppCompatActivity {
                 // HERE
                 try
                 {
-                    sender.sendMail(et_title.getText().toString(), // subject.getText().toString(),
-                            et_content.getText().toString(), // body.getText().toString(),
+                    sender.sendMail("컨설팅 참가 확인 메일", // subject.getText().toString(),
+                            "컨설팅 참석에 감사드립니다. ", // body.getText().toString(),
                             "teamhanmail@gmail.com", // from.getText().toString(),
                             "teamhanmail@gmail.com" // to.getText().toString()
                     );
-                    toast();
+
                     toast();
                 } catch (Exception e)
                 {
@@ -58,12 +57,37 @@ public class Mainpage extends AppCompatActivity {
                 }
             }
         });
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                textmain1.setText("욕실은");
+            }
+        },1000);
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                textmain2.setText("가장 아름다운 방");
+            }
+        },2000);
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                textmain3.setText("이어야 합니다. ");
+            }
+        },3000);
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                textmain4.setText("Bathroom should be the most beautiful room.");
+            }
+        },4000);
     }
 
     public void toast()
     {
         Toast.makeText(this, "전송되었습니다.", Toast.LENGTH_SHORT).show();
-
+        
     }
 
 

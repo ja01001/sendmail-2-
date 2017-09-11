@@ -8,50 +8,48 @@
     android:background="@drawable/main"
     tools:context="com.example.ja010.sendgmail.Mainpage">
 
-    <LinearLayout
+
+    <TextView
+        android:id="@+id/text1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.5"
-        android:orientation="vertical" >
-
-        <EditText
-            android:id="@+id/et_title"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="제목" >
-
-            <requestFocus />
-        </EditText>
-    </LinearLayout>
-
-    <LinearLayout
+        android:gravity="center_horizontal"
+        android:textSize="20dp"
+    />
+    <TextView
+        android:id="@+id/text2"
+        android:textSize="40dp"
+        android:textColor="#ffffff"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="10"
-        android:orientation="vertical" >
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+    />
+    <TextView
+        android:id="@+id/text3"
 
-        <EditText
-            android:id="@+id/et_content"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="내용" >
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
 
-            <requestFocus />
-        </EditText>
-    </LinearLayout>
+        android:textColor="#ffffff"
+    />
+    <TextView
+        android:id="@+id/text4"
+        android:textColor="#ffffff"
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:textSize="10dp"
+    />
 
-    <LinearLayout
+    <Button
+        android:id="@+id/btn_send"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_gravity="right"
-        android:orientation="vertical" >
 
-        <Button
-            android:id="@+id/btn_send"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:text="메일 보내기" />
-    </LinearLayout>
+        android:layout_gravity="right"
+        android:text="메일 보내기" />
+
+
 </LinearLayout>
