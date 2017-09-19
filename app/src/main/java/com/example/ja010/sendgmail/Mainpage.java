@@ -13,8 +13,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Mainpage extends AppCompatActivity {
-    private GMailSender m;
     TextView textmain1,textmain2,textmain3,textmain4;
+    EditText et;
+    String password;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -25,38 +26,9 @@ public class Mainpage extends AppCompatActivity {
         textmain3 = (TextView)findViewById(R.id.text3);
         textmain4 = (TextView)findViewById(R.id.text4);
         Button btn_send = (Button) this.findViewById(R.id.btn_send);
+        Intent i = getIntent();
+        password = i.getStringExtra("password");
 
-        btn_send.setOnClickListener(new View.OnClickListener()
-        {
-            public void onClick(View view)
-            {
-                GMailSender sender = new GMailSender("user_id@gmail.com", "password"); // SUBSTITUTE
-
-                if (android.os.Build.VERSION.SDK_INT > 9)
-                {
-
-                    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
-                            .permitAll().build();
-
-                    StrictMode.setThreadPolicy(policy);
-
-                }
-                // HERE
-                try
-                {
-                    sender.sendMail("컨설팅 참가 확인 메일", // subject.getText().toString(),
-                            "컨설팅 참석에 감사드립니다. ", // body.getText().toString(),
-                            "user_email@gmail.com", // from.getText().toString(),
-                            "user_email@gmail.com" // to.getText().toString()
-                    );
-
-                    toast();
-                } catch (Exception e)
-                {
-                    Log.e("SendMail", e.getMessage(), e);
-                }
-            }
-        });
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -75,20 +47,21 @@ public class Mainpage extends AppCompatActivity {
             public void run() {
                 textmain3.setText("이어야 합니다. ");
             }
-        },2000);
+        },3000);
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 textmain4.setText("Bathroom should be the most beautiful room.");
             }
         },4000);
+
+    }
+    public void clcl(View v){
+        Intent i2 = new Intent(Mainpage.this,Sendingpage.class);
+        i2.putExtra("pass",password);
+        startActivity(i2);
     }
 
-    public void toast()
-    {
-        Toast.makeText(this, "전송되었습니다.", Toast.LENGTH_SHORT).show();
-        
-    }
 
 
 }
